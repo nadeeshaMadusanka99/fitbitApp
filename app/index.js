@@ -33,31 +33,27 @@ messaging.peerSocket.onmessage = function (evt) {
     const watchCode = evt.data.watchCode;
     const watchId = evt.data.watchId;
     const isUserIDNull = evt.data.isUserIDNull;
-    // console.log(
-    //   "isUserIDNull: " + isUserIDNull,
-    //   "watchCode: " + watchCode,
-    //   "watchId: " + watchId
-    // );
 
     let json_data = {
       watchCode: watchCode,
       watchId: watchId,
     };
-
+    console.log("isUserIdNull in App:", isUserIDNull);
     if (isUserIDNull === true) {
       //show the code and remove the connect button
       showText.text = "Enter this code on your app:";
       codeShow.text = watchCode;
       myButton.style.display = "none";
     } else {
+      //show the connected message and remove the code
       showText.style.fill = "black";
       showText.text = "Connected to the app...";
       codeShow.style.fill = "darkgreen";
       codeShow.text = "Welcome!";
       myButton.style.display = "none";
     }
-    // // save the code to a file in the device and read it
-    // fs.writeFileSync("json.txt", json_data, "json");
+    // // save the watchCode and watchId to a file in the device
+    fs.writeFileSync("json.txt", json_data, "json");
     // let json_object = fs.readFileSync("json.txt", "json");
     // console.log("Authenticated code from fs: " + json_object.code);
 
