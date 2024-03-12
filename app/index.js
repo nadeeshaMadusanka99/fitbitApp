@@ -33,11 +33,11 @@ messaging.peerSocket.onmessage = function (evt) {
     const watchCode = evt.data.watchCode;
     const watchId = evt.data.watchId;
     const isUserIDNull = evt.data.isUserIDNull;
-    console.log(
-      "isUserIDNull: " + isUserIDNull,
-      "watchCode: " + watchCode,
-      "watchId: " + watchId
-    );
+    // console.log(
+    //   "isUserIDNull: " + isUserIDNull,
+    //   "watchCode: " + watchCode,
+    //   "watchId: " + watchId
+    // );
 
     let json_data = {
       watchCode: watchCode,
