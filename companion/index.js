@@ -8,6 +8,7 @@ let continuePolling = true;
 
 let watchId,
   watchCode = null;
+
 //check if the watch is paired
 async function isPaired() {
   if (watchCode) {
@@ -63,7 +64,7 @@ function getCode(deviceName) {
 
 // Listen for the onopen event from the device
 messaging.peerSocket.onmessage = function (evt) {
-  if (evt.data && evt.data.message === true) {
+  if (evt.data) {
     getCode(evt.data.deviceModelName);
   } else {
     console.log("No data");

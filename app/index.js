@@ -7,19 +7,17 @@ import { me as device } from "device";
 
 const myButton = document.getElementById("myButton");
 
-function buttonClicked(message) {
+function buttonClicked() {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send({
-      message: message,
       deviceModelName: deviceModelName,
     });
   }
 }
-const buttonClick = false;
+
 //send true when the button is clicked
 myButton.addEventListener("click", (evt) => {
-  buttonClick = true;
-  buttonClicked(buttonClick);
+  buttonClicked();
 });
 
 const deviceModelName = device.modelName;
