@@ -47,7 +47,7 @@ messaging.peerSocket.onmessage = function (evt) {
     if (isUserIDNull === true) {
       //show the code and remove the connect button
       showText.text = "Enter this code on your app:";
-      codeShow.text = receivedCode;
+      codeShow.text = watchCode;
       myButton.style.display = "none";
     } else {
       showText.style.fill = "black";
@@ -63,7 +63,7 @@ messaging.peerSocket.onmessage = function (evt) {
 
     // // send the step count and location to the server every 5 seconds
     //   setInterval(() => {
-    //     const stepCount = today.adjusted.steps;
+    //     const stepCount = today.adjusted.steps;s
 
     //     // Request location
     //     geolocation.getCurrentPosition(locationSuccess, locationError);
