@@ -31,17 +31,28 @@ messaging.peerSocket.onmessage = function (evt) {
     const watchCode = evt.data.watchCode;
     const watchId = evt.data.watchId;
     const isUserIDNull = evt.data.isUserIDNull;
+    const isTempPollingFalse = evt.data.isTempPollingFalse;
+
+    // console.log(
+    //   "watchCode: " + watchCode,
+    //   "watchId: " + watchId,
+    //   "isUserIDNull: " + isUserIDNull,
+    //   "isTempPollingFalse: " + isTempPollingFalse
+    // );
+    console.log("inside evt: ", evt.data.isTempPollingFalse);
 
     let json_data = {
       watchCode: watchCode,
       watchId: watchId,
     };
-    console.log("isUserIdNull in App:", isUserIDNull);
+
     if (isUserIDNull === true) {
       //show the code and remove the connect button
       showText.text = "Enter this code on your app:";
       codeShow.text = watchCode;
       myButton.style.display = "none";
+    } else if (isTempPollingFalse === true) {
+      codeShow.text = "Loading...";
     } else {
       //show the connected message and remove the code
       showText.style.fill = "black";

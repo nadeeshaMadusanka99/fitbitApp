@@ -15,7 +15,16 @@ async function isPaired() {
     try {
       const data = await isWatchPairedService(watchCode);
       continuePolling = !data;
-      console.log("inside isPaired continuePolling:", continuePolling);
+      console.log("continuePolling:", continuePolling);
+      if (
+        data &&
+        messaging.peerSocket.readyState === messaging.peerSocket.OPEN
+      ) {
+        console.log("Watch is paired and loading state is on");
+        messaging.peerSocket.send({
+          isTempPollingFalse: true,
+        });
+      }
     } catch (error) {
       console.error("Failed to check watch pairing:", error);
     }
@@ -33,7 +42,6 @@ function getCode(deviceName) {
       console.log("watchCode:", watchCode, "watchId:", watchId);
 
       // Send the watchCode and data to the device
-
       const sendDataToDevice = () => {
         if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
           messaging.peerSocket.send({
@@ -44,11 +52,10 @@ function getCode(deviceName) {
         }
       };
 
-      // Poll every 5 seconds while continuePolling is true
+      // Poll every 5 seconds for check if the user is registered for the watch
       sendDataToDevice();
-      isPaired();
+      // isPaired();
       const pollingInterval = setInterval(() => {
-        console.log("inside pollingInterval continuePolling:", continuePolling);
         if (continuePolling) {
           isPaired();
         } else {
