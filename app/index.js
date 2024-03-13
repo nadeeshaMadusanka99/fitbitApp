@@ -39,7 +39,6 @@ messaging.peerSocket.onmessage = function (evt) {
     //   "isUserIDNull: " + isUserIDNull,
     //   "isTempPollingFalse: " + isTempPollingFalse
     // );
-    console.log("inside evt: ", evt.data.isTempPollingFalse);
 
     let json_data = {
       watchCode: watchCode,
@@ -51,15 +50,18 @@ messaging.peerSocket.onmessage = function (evt) {
       showText.text = "Enter this code on your app:";
       codeShow.text = watchCode;
       myButton.style.display = "none";
-    } else if (isTempPollingFalse === true) {
-      codeShow.text = "Loading...";
     } else {
-      //show the connected message and remove the code
-      showText.style.fill = "black";
-      showText.text = "Connected to the app...";
-      codeShow.style.fill = "darkgreen";
-      codeShow.text = "Welcome!";
+      //show loading text for 4 seconds and then show connected message
+      showText.text = "Loading...";
+      codeShow.text = "";
       myButton.style.display = "none";
+
+      setTimeout(() => {
+        codeShow.style.display = showText.text = "Connected to the app...";
+        showText.style.fill = "black";
+        codeShow.style.fill = "darkgreen";
+        codeShow.text = "Welcome!";
+      }, 4000);
     }
     // // save the watchCode and watchId to a file in the device
     fs.writeFileSync("json.txt", json_data, "json");

@@ -16,15 +16,6 @@ async function isPaired() {
       const data = await isWatchPairedService(watchCode);
       continuePolling = !data;
       console.log("continuePolling:", continuePolling);
-      if (
-        data &&
-        messaging.peerSocket.readyState === messaging.peerSocket.OPEN
-      ) {
-        console.log("Watch is paired and loading state is on");
-        messaging.peerSocket.send({
-          isTempPollingFalse: true,
-        });
-      }
     } catch (error) {
       console.error("Failed to check watch pairing:", error);
     }
@@ -60,7 +51,7 @@ function getCode(deviceName) {
           isPaired();
         } else {
           sendDataToDevice();
-          clearInterval(pollingInterval); // Stop the interval
+          clearInterval(pollingInterval);
         }
       }, 5000);
     })
