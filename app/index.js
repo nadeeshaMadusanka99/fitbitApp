@@ -7,19 +7,17 @@ import { me as device } from "device";
 
 const myButton = document.getElementById("myButton");
 
-function buttonClicked(message) {
+function buttonClicked() {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send({
-      message: message,
       deviceModelName: deviceModelName,
     });
   }
 }
-const buttonClick = false;
+
 //send true when the button is clicked
 myButton.addEventListener("click", (evt) => {
-  buttonClick = true;
-  buttonClicked(buttonClick);
+  buttonClicked();
 });
 
 const deviceModelName = device.modelName;
@@ -33,11 +31,14 @@ messaging.peerSocket.onmessage = function (evt) {
     const watchCode = evt.data.watchCode;
     const watchId = evt.data.watchId;
     const isUserIDNull = evt.data.isUserIDNull;
-    console.log(
-      "isUserIDNull: " + isUserIDNull,
-      "watchCode: " + watchCode,
-      "watchId: " + watchId
-    );
+    const isTempPollingFalse = evt.data.isTempPollingFalse;
+
+    // console.log(
+    //   "watchCode: " + watchCode,
+    //   "watchId: " + watchId,
+    //   "isUserIDNull: " + isUserIDNull,
+    //   "isTempPollingFalse: " + isTempPollingFalse
+    // );
 
     let json_data = {
       watchCode: watchCode,
@@ -47,23 +48,29 @@ messaging.peerSocket.onmessage = function (evt) {
     if (isUserIDNull === true) {
       //show the code and remove the connect button
       showText.text = "Enter this code on your app:";
-      codeShow.text = receivedCode;
+      codeShow.text = watchCode;
       myButton.style.display = "none";
     } else {
-      showText.style.fill = "black";
-      showText.text = "Connected to the app...";
-      codeShow.style.fill = "darkgreen";
-      codeShow.text = "Welcome!";
+      //show loading text for 4 seconds and then show connected message
+      showText.text = "Loading...";
+      codeShow.text = "";
       myButton.style.display = "none";
+
+      setTimeout(() => {
+        codeShow.style.display = showText.text = "Connected to the app...";
+        showText.style.fill = "black";
+        codeShow.style.fill = "darkgreen";
+        codeShow.text = "Welcome!";
+      }, 4000);
     }
-    // // save the code to a file in the device and read it
-    // fs.writeFileSync("json.txt", json_data, "json");
+    // // save the watchCode and watchId to a file in the device
+    fs.writeFileSync("json.txt", json_data, "json");
     // let json_object = fs.readFileSync("json.txt", "json");
     // console.log("Authenticated code from fs: " + json_object.code);
 
     // // send the step count and location to the server every 5 seconds
     //   setInterval(() => {
-    //     const stepCount = today.adjusted.steps;
+    //     const stepCount = today.adjusted.steps;s
 
     //     // Request location
     //     geolocation.getCurrentPosition(locationSuccess, locationError);

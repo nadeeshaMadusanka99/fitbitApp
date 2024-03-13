@@ -1,6 +1,6 @@
-import { BACKEND_URL } from "./env";
+import { BACKEND_URL } from "../env";
 
-export async function registerWatch(deviceName, watchType) {
+export async function registerWatchService(deviceName, watchType) {
   const url = `${BACKEND_URL}/watch/register-watch`;
 
   const requestBody = {
@@ -28,7 +28,7 @@ export async function registerWatch(deviceName, watchType) {
   }
 }
 
-export async function isPaired(watchCode) {
+export async function isWatchPairedService(watchCode) {
   const url = `${BACKEND_URL}/watch/is-ready?watchCode=${watchCode}`;
   try {
     const response = await fetch(url);
@@ -38,7 +38,6 @@ export async function isPaired(watchCode) {
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error("Error checking watch readiness:", error);
