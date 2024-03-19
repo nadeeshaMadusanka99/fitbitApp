@@ -37,7 +37,8 @@ export async function isWatchPairedService(watchCode) {
       throw new Error("Failed to check watch readiness");
     }
 
-    const data = await response.json();
+    const data = await response.text();
+    console.log("data: ", data);
     return data;
   } catch (error) {
     console.error("Error checking watch readiness:", error);
