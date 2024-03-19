@@ -8,15 +8,25 @@
 #background {
   width: 100%;
   height: 100%;
-  fill: cornsilk;
+  fill: fb-black;
 }
 
-.application-fill           { fill: fb-yellow; }
-.foreground-fill            { fill: fb-white; }
-.background-fill            { fill: fb-black; }
+.application-fill {
+  fill: fb-yellow;
+}
+.foreground-fill {
+  fill: fb-white;
+}
+.background-fill {
+  fill: fb-black;
+}
+.pairButton-fill {
+  fill: #f52f57;
+}
 
 #myButton #text {
-  text-buffer: "CONNECT TO APP";
+  text-buffer: "Pair with App";
+  fill: fb-white;
 }
 #codeShow {
   font-size: 70;
@@ -25,7 +35,7 @@
   text-anchor: middle;
   x: 50%;
   y: 50%+50;
-  fill: black;
+  fill: fb-white;
 }
 #showText {
   font-size: 25;
@@ -34,5 +44,5 @@
   text-anchor: middle;
   x: 50%;
   y: 50%-30;
-  fill: midnightblue;
+  fill: fb-white;
 }
