@@ -16,7 +16,6 @@ export async function registerWatchService(deviceName, watchType) {
       },
       body: JSON.stringify(requestBody),
     });
-    // console.log("response", await response.json());
     if (!response.ok) {
       throw new Error("Failed to register watch");
     }
@@ -38,7 +37,6 @@ export async function isWatchPairedService(watchCode) {
     }
 
     const data = await response.text();
-    console.log("data: ", data);
     return data;
   } catch (error) {
     console.error("Error checking watch readiness:", error);
