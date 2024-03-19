@@ -25,9 +25,9 @@
 }
 
 #myButton #text {
-  text-buffer: "Pair with App";
   fill: fb-white;
 }
+
 #codeShow {
   font-size: 70;
   font-family: System-Bold;

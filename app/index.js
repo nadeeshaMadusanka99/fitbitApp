@@ -6,6 +6,7 @@ import { geolocation } from "geolocation";
 import { me as device } from "device";
 
 const myButton = document.getElementById("myButton");
+myButton.text = "Pair with App";
 
 function buttonClicked() {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
@@ -49,10 +50,7 @@ messaging.peerSocket.onmessage = function (evt) {
       myButton.style.display = "none";
 
       setTimeout(() => {
-        codeShow.style.display = showText.text = "Connected to the app...";
-        showText.style.fill = "black";
-        codeShow.style.fill = "darkgreen";
-        codeShow.text = "Welcome!";
+        codeShow.style.display = showText.text = "Device Successfully Paired";
       }, 4000);
     }
     // // save the watchCode and watchId to a file in the device
