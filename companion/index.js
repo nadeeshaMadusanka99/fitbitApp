@@ -14,7 +14,7 @@ async function isPaired() {
   if (watchCode) {
     try {
       const data = await isWatchPairedService(watchCode);
-      continuePolling = !data;
+      continuePolling = data === "false" ? true : false;
       console.log("continuePolling:", continuePolling);
     } catch (error) {
       console.error("Failed to check watch pairing:", error);
