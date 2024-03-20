@@ -25,10 +25,12 @@ const deviceModelName = device.modelName;
 
 // Listen for the onopen event from the companion
 messaging.peerSocket.onmessage = function (evt) {
+  const buttonGradient = document.getElementById("buttonGradient");
   const codeShow = document.getElementById("codeShow");
   const showText = document.getElementById("showText");
 
   if (evt.data && evt.data.watchCode && evt.data.watchId) {
+    buttonGradient.style.display = "none";
     const watchCode = evt.data.watchCode;
     const watchId = evt.data.watchId;
     const isUserIDNull = evt.data.isUserIDNull;
