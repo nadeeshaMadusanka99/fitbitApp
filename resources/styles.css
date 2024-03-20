@@ -20,14 +20,6 @@
 .background-fill {
   fill: fb-black;
 }
-.pairButton-fill {
-  fill: #f52f57;
-}
-.app-gradient-fist-onboarding-background {
-  fill: #940b27;
-  x: 0%-5;
-  y: 0%-50;
-}
 
 #myButton #text {
   fill: fb-white;
@@ -50,6 +42,25 @@
   x: 50%;
   y: 50%-30;
   fill: fb-white;
+}
+
+/* Gradient Backgrounds */
+.app-gradient-fist-onboarding-background {
+  fill: #940b27;
+  x: 0%-5;
+  y: 0%-50;
+}
+
+.gradient-blue-background {
+  fill: #0b2a44;
+}
+
+.gradient-green-background {
+  fill: #0b341f;
+}
+
+.gradient-yellow-background {
+  fill: #342d0a;
 }
 
 /* Typography sizes */
@@ -107,6 +118,11 @@
 .p4 {
   font-size: 18;
   line-increment: 26;
+}
+
+/* Colors */
+.primary-clr {
+  fill: #f52f57;
 }
 
 /* Helpers */
