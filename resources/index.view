@@ -5,11 +5,11 @@
     gradient-x1="50%" gradient-y1="50%"
     gradient-color1="#940B27" /> -->
     <g id="buttonGradient">
-      <use href="#app-gradient-background" class="app-gradient-background application-fill" apply-style="at-use" />
+      <use href="#app-gradient-background" class="app-gradient-fist-onboarding-background application-fill" apply-style="at-use" />
       <image id="backgroundImage" x="35%" y="20%" width="99" height="99" href="icons/icon.png"/>
     </g>
 
-  <use id="myButton" href="#text-button" class="text-button bottom pairButton-fill" />
+  <use id="myButton" href="#text-button" class="text-button bottom pairButton-fill h3 " />
   <text id="showText" />
   <text id="codeShow" />
 
