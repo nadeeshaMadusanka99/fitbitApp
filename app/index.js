@@ -28,7 +28,7 @@ messaging.peerSocket.onmessage = function (evt) {
   const buttonGradient = document.getElementById("buttonGradient");
   const codeScreenGradient = document.getElementById("codeScreenGradient");
   const codeShow = document.getElementById("codeShow");
-  const showText = document.getElementById("showText");
+  // const showText = document.getElementById("showText");
 
   if (evt.data && evt.data.watchCode && evt.data.watchId) {
     buttonGradient.style.display = "none";
@@ -44,18 +44,16 @@ messaging.peerSocket.onmessage = function (evt) {
     if (isUserIDNull === true) {
       //show the code and remove the connect button
       codeScreenGradient.style.display = "inline";
-      showText.text = "Enter this code on FITSMILES App";
       codeShow.text = watchCode;
       myButton.style.display = "none";
     } else {
       //show loading text for 4 seconds and then show connected message
-      showText.text = "Loading...";
       codeShow.text = "";
       myButton.style.display = "none";
 
-      setTimeout(() => {
-        codeShow.style.display = showText.text = "Device Successfully Paired";
-      }, 4000);
+      // setTimeout(() => {
+      //   codeShow.style.display = showText.text = "Device Successfully Paired";
+      // }, 4000);
     }
     // // save the watchCode and watchId to a file in the device
     fs.writeFileSync("json.txt", json_data, "json");

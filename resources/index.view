@@ -1,23 +1,36 @@
 <svg>
   <rect id="background" />
-    <!-- <gradientRect x="13%" y="2%" width="70%" height="70%"
-    gradient-type="radial"
-    gradient-x1="50%" gradient-y1="50%"
-    gradient-color1="#940B27" /> -->
-    <g id="codeScreenGradient">
+
+<!-- Successfylly Paired screen -->
+    <svg id="successfulScreenGradient">
+      <use href="#app-gradient-background" class="gradient-green-background  application-fill" apply-style="at-use" />
+      <image id="backgroundImage" x="148" y="68" width="33" height="44" href="icons/successfulIcon.png"/>
+      <textarea text-length= "16" rows= "2" id="showText"  y="72%"  text-anchor="middle" class="p2" >
+        Device Successfylly Paired
+      </textarea>
+    </svg>
+    
+<!-- WatchCode display screen -->
+    <svg id="codeScreenGradient">
       <use href="#app-gradient-background" class="gradient-blue-background  application-fill" apply-style="at-use" />
       <image id="backgroundImage" x="148" y="68" width="33" height="44" href="icons/watchCodeIcon.png"/>
       <text id="codeShow" x="50%" y="50%+30" class="h1"/>
-      <text text-length= "50" rows= "2" text-overflow= "clip" id="showText"  y="75%" class="p3" />
-    </g>
-    <g id="buttonGradient">
+      <textarea text-length= "16" rows= "2" id="showText"  y="72%"  text-anchor="middle" class="p2" >
+        Enter this code on FITSMILES App
+      </textarea>
+    </svg>
+    
+    <!-- <g id="loading-animation" pointer-events="visible" transform="translate(50%,50%)">
+      <animateTransform attributeType="rotate" from="0" to="360" begin="activate;load;click" dur="3" repeatCount="2"  />
+      <rect x="$-100" y="$-100" width="200" height="200" fill="fb-red" /> 
+         <image width="48" height="48" href="icons/loading.png"/>
+    </g> -->
+
+    <!-- Onboarding Screen -->
+    <svg id="buttonGradient">
       <use href="#app-gradient-background" class="app-gradient-fist-onboarding-background application-fill" apply-style="at-use" />
       <image id="backgroundImage" x="35%" y="20%" width="99" height="99" href="icons/icon.png"/>
-    </g>
-
- 
+    </svg>
 
   <use id="myButton" href="#text-button" class="text-button bottom primary-clr h3 " />
-
-
 </svg>
