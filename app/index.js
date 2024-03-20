@@ -11,6 +11,8 @@ const showWatchCodeScreen = document.getElementById("showWatchCodeScreen");
 const successfullyPairedScreen = document.getElementById(
   "successfullyPairedScreen"
 );
+
+// Show the onBoardingScreen and hide the other screens
 onBoardingScreen.style.display = "inline";
 showWatchCodeScreen.style.display = "none";
 successfullyPairedScreen.style.display = "none";
@@ -53,11 +55,15 @@ messaging.peerSocket.onmessage = function (evt) {
     if (isUserIDNull === true) {
       //show the code and remove the connect button
       codeShow.text = watchCode;
-      showWatchCodeScreen.style.display = "inline";
+
+      successfullyPairedScreen.style.display = "inline";
+      // Development Comment
+      // showWatchCodeScreen.style.display = "inline";
     } else {
       //show loading text for 4 seconds and then show connected message
-      showWatchCodeScreen.style.display = "none";
-      successfullyPairedScreen.style.display = "inline";
+      // Development Comment
+      // showWatchCodeScreen.style.display = "none";
+      // successfullyPairedScreen.style.display = "inline";
       // setTimeout(() => {
       //   codeShow.style.display = showText.text = "Device Successfully Paired";
       // }, 4000);

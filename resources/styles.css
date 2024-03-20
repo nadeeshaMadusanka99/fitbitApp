@@ -11,7 +11,7 @@
 }
 
 .application-fill {
-  fill: fb-cyan;
+  fill: fb-green-press;
 }
 .foreground-fill {
   fill: fb-white;
@@ -56,7 +56,7 @@
 }
 
 .gradient-green-background {
-  fill: seagreen;
+  fill: forestgreen;
   width: 100%;
   height: 100%;
 }

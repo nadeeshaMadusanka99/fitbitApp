@@ -3,11 +3,10 @@
 
 <!-- Successfylly Paired screen -->
     <svg id="successfullyPairedScreen">
-      <use href="#app-gradient-background" class="gradient-green-background  "  />
-      <image id="successfulIcon" x="148" y="68" width="55" height="55" href="icons/successfulIcon.png"/>
-      <textarea text-length= "10" rows= "2" id="showText"  y="72%"  text-anchor="middle" class="p2" >
-        Device Successfylly 
-        Paired
+      <use href="#app-gradient-background" class="gradient-green-background  application-fill"  />
+      <image id="successfulIcon" x="50%-27" y="50%-27" width="55" height="55" href="icons/successfulIcon.png"/>
+      <textarea text-length= "10" rows= "2" id="showText"  y="72%"  text-anchor="middle" class="p2" text-overflow="clip">
+        Device Successfully      Paired
       </textarea>
     </svg>
     
