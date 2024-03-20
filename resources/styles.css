@@ -12,7 +12,7 @@
 }
 
 .application-fill {
-  fill: fb-yellow;
+  fill: fb-cyan;
 }
 .foreground-fill {
   fill: fb-white;
@@ -24,7 +24,9 @@
   fill: #f52f57;
 }
 .app-gradient-background {
-  fill: #f52f57;
+  fill: #940b27;
+  x: 0%-5;
+  y: 0%-50;
 }
 
 #myButton #text {
