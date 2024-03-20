@@ -1,6 +1,13 @@
 <svg>
   <rect id="background" />
+   <use href="#app-gradient-background" class="app-gradient-background application-fill" apply-style="at-use">
+    <svg>
+      <image id="backgroundImage" x="118" y="72" width="99" height="99" href="icons/icon.png"/>
+    </svg>
+  </use>
+  <!-- <circle cx="50%" cy="50%" r="80" fill="red" /> -->
   <use id="myButton" href="#text-button" class="text-button bottom pairButton-fill" />
   <text id="showText" />
   <text id="codeShow" />
+
 </svg>

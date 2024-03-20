@@ -11,7 +11,7 @@
     "appUUID": "5a8a9836-7889-48d2-8d3d-c16f86d30087",
     "appType": "app",
     "appDisplayName": "FITSMILES",
-    "iconFile": "resources/icon.png",
+    "iconFile": "resources/icons/icon.png",
     "wipeColor": "#940B27",
     "requestedPermissions": [
       "run_background",

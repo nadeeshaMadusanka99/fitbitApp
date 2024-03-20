@@ -23,6 +23,9 @@
 .pairButton-fill {
   fill: #f52f57;
 }
+.app-gradient-background {
+  fill: #f52f57;
+}
 
 #myButton #text {
   fill: fb-white;
