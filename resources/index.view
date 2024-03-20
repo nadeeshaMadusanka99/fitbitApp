@@ -2,18 +2,19 @@
   <rect id="background" />
 
 <!-- Successfylly Paired screen -->
-    <svg id="successfulScreenGradient">
-      <use href="#app-gradient-background" class="gradient-green-background  application-fill" apply-style="at-use" />
-      <image id="backgroundImage" x="148" y="68" width="33" height="44" href="icons/successfulIcon.png"/>
-      <textarea text-length= "16" rows= "2" id="showText"  y="72%"  text-anchor="middle" class="p2" >
-        Device Successfylly Paired
+    <svg id="successfullyPairedScreen">
+      <use href="#app-gradient-background" class="gradient-green-background  "  />
+      <image id="successfulIcon" x="148" y="68" width="55" height="55" href="icons/successfulIcon.png"/>
+      <textarea text-length= "10" rows= "2" id="showText"  y="72%"  text-anchor="middle" class="p2" >
+        Device Successfylly 
+        Paired
       </textarea>
     </svg>
     
 <!-- WatchCode display screen -->
-    <svg id="codeScreenGradient">
+    <svg id="showWatchCodeScreen">
       <use href="#app-gradient-background" class="gradient-blue-background  application-fill" apply-style="at-use" />
-      <image id="backgroundImage" x="148" y="68" width="33" height="44" href="icons/watchCodeIcon.png"/>
+      <image id="watchCodeIcon" x="148" y="68" width="33" height="44" href="icons/watchCodeIcon.png"/>
       <text id="codeShow" x="50%" y="50%+30" class="h1"/>
       <textarea text-length= "16" rows= "2" id="showText"  y="72%"  text-anchor="middle" class="p2" >
         Enter this code on FITSMILES App
@@ -27,10 +28,9 @@
     </g> -->
 
     <!-- Onboarding Screen -->
-    <svg id="buttonGradient">
+    <svg id="onBoardingScreen">
       <use href="#app-gradient-background" class="app-gradient-fist-onboarding-background application-fill" apply-style="at-use" />
       <image id="backgroundImage" x="35%" y="20%" width="99" height="99" href="icons/icon.png"/>
+      <use id="myButton" href="#text-button" class="text-button bottom primary-clr h3 " />
     </svg>
-
-  <use id="myButton" href="#text-button" class="text-button bottom primary-clr h3 " />
 </svg>

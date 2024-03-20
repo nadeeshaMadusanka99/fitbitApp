@@ -5,6 +5,17 @@ import { today } from "user-activity";
 import { geolocation } from "geolocation";
 import { me as device } from "device";
 
+// Get the screen elements
+const onBoardingScreen = document.getElementById("onBoardingScreen");
+const showWatchCodeScreen = document.getElementById("showWatchCodeScreen");
+const successfullyPairedScreen = document.getElementById(
+  "successfullyPairedScreen"
+);
+onBoardingScreen.style.display = "inline";
+showWatchCodeScreen.style.display = "none";
+successfullyPairedScreen.style.display = "none";
+
+// Get the pair button
 const myButton = document.getElementById("myButton");
 myButton.text = "Pair with App";
 
@@ -16,7 +27,6 @@ function buttonClicked() {
   }
 }
 
-//send true when the button is clicked
 myButton.addEventListener("click", (evt) => {
   buttonClicked();
 });
@@ -25,17 +35,16 @@ const deviceModelName = device.modelName;
 
 // Listen for the onopen event from the companion
 messaging.peerSocket.onmessage = function (evt) {
-  const buttonGradient = document.getElementById("buttonGradient");
-  const codeScreenGradient = document.getElementById("codeScreenGradient");
+  // Get the code element
   const codeShow = document.getElementById("codeShow");
-  // const showText = document.getElementById("showText");
 
   if (evt.data && evt.data.watchCode && evt.data.watchId) {
-    buttonGradient.style.display = "none";
+    onBoardingScreen.style.display = "none";
     const watchCode = evt.data.watchCode;
     const watchId = evt.data.watchId;
     const isUserIDNull = evt.data.isUserIDNull;
 
+    // myButton.style.display = "none";
     let json_data = {
       watchCode: watchCode,
       watchId: watchId,
@@ -43,14 +52,12 @@ messaging.peerSocket.onmessage = function (evt) {
 
     if (isUserIDNull === true) {
       //show the code and remove the connect button
-      codeScreenGradient.style.display = "inline";
       codeShow.text = watchCode;
-      myButton.style.display = "none";
+      showWatchCodeScreen.style.display = "inline";
     } else {
       //show loading text for 4 seconds and then show connected message
-      codeShow.text = "";
-      myButton.style.display = "none";
-
+      showWatchCodeScreen.style.display = "none";
+      successfullyPairedScreen.style.display = "inline";
       // setTimeout(() => {
       //   codeShow.style.display = showText.text = "Device Successfully Paired";
       // }, 4000);

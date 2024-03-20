@@ -56,7 +56,9 @@
 }
 
 .gradient-green-background {
-  fill: #ffffff;
+  fill: seagreen;
+  width: 100%;
+  height: 100%;
 }
 
 .gradient-yellow-background {
