@@ -4,13 +4,20 @@
     gradient-type="radial"
     gradient-x1="50%" gradient-y1="50%"
     gradient-color1="#940B27" /> -->
+    <g id="codeScreenGradient">
+      <use href="#app-gradient-background" class="gradient-blue-background  application-fill" apply-style="at-use" />
+      <image id="backgroundImage" x="148" y="68" width="33" height="44" href="icons/watchCodeIcon.png"/>
+      <text id="codeShow" x="50%" y="50%+30" class="h1"/>
+      <text text-length= "50" rows= "2" text-overflow= "clip" id="showText"  y="75%" class="p3" />
+    </g>
     <g id="buttonGradient">
       <use href="#app-gradient-background" class="app-gradient-fist-onboarding-background application-fill" apply-style="at-use" />
       <image id="backgroundImage" x="35%" y="20%" width="99" height="99" href="icons/icon.png"/>
     </g>
 
+ 
+
   <use id="myButton" href="#text-button" class="text-button bottom primary-clr h3 " />
-  <text id="showText" />
-  <text id="codeShow" />
+
 
 </svg>

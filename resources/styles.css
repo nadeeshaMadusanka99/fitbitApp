@@ -1,7 +1,6 @@
 .defaultText {
   font-size: 32;
   font-family: System-Regular;
-  font-weight: regular;
   text-length: 32;
 }
 
@@ -26,21 +25,20 @@
 }
 
 #codeShow {
-  font-size: 70;
+  /* font-size: 70; */
   font-family: System-Bold;
   text-length: 32;
   text-anchor: middle;
-  x: 50%;
-  y: 50%+50;
+  display-align: center;
   fill: fb-white;
 }
 #showText {
-  font-size: 25;
-  font-family: System-Regular;
-  text-length: 32;
-  text-anchor: middle;
-  x: 50%;
-  y: 50%-30;
+  /* font-size: 25;
+  font-family: System-Regular; */
+
+  /* text-anchor: middle; */
+  /* x: 50%;
+  y: 50%-30; */
   fill: fb-white;
 }
 
@@ -52,11 +50,13 @@
 }
 
 .gradient-blue-background {
-  fill: #0b2a44;
+  fill: navy;
+  width: 100%;
+  height: 100%;
 }
 
 .gradient-green-background {
-  fill: #0b341f;
+  fill: #ffffff;
 }
 
 .gradient-yellow-background {
@@ -65,7 +65,7 @@
 
 /* Typography sizes */
 .h1 {
-  font-size: 80;
+  font-size: 70;
   line-increment: 100;
   font-weight: bold;
 }

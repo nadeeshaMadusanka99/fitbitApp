@@ -26,6 +26,7 @@ const deviceModelName = device.modelName;
 // Listen for the onopen event from the companion
 messaging.peerSocket.onmessage = function (evt) {
   const buttonGradient = document.getElementById("buttonGradient");
+  const codeScreenGradient = document.getElementById("codeScreenGradient");
   const codeShow = document.getElementById("codeShow");
   const showText = document.getElementById("showText");
 
@@ -42,7 +43,8 @@ messaging.peerSocket.onmessage = function (evt) {
 
     if (isUserIDNull === true) {
       //show the code and remove the connect button
-      showText.text = "Enter this code on your app:";
+      codeScreenGradient.style.display = "inline";
+      showText.text = "Enter this code on FITSMILES App";
       codeShow.text = watchCode;
       myButton.style.display = "none";
     } else {
