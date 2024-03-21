@@ -11,11 +11,14 @@ const showWatchCodeScreen = document.getElementById("showWatchCodeScreen");
 const successfullyPairedScreen = document.getElementById(
   "successfullyPairedScreen"
 );
+const loadingAnimation = document.getElementById("loading-animation");
+console.log(loadingAnimation);
 
 // Show the onBoardingScreen and hide the other screens
 onBoardingScreen.style.display = "inline";
 showWatchCodeScreen.style.display = "none";
 successfullyPairedScreen.style.display = "none";
+loadingAnimation.style.display = "none";
 
 // Get the pair button
 const myButton = document.getElementById("myButton");
@@ -57,18 +60,20 @@ messaging.peerSocket.onmessage = function (evt) {
       codeShow.text = watchCode;
       //Development Comment
       // successfullyPairedScreen.style.display = "inline";
-
+      console.log("About to show loading animation.");
+      loadingAnimation.style.display = "inline";
       // Real CodeBase Comment
-      showWatchCodeScreen.style.display = "inline";
+      setTimeout(() => {
+        showWatchCodeScreen.style.display = "inline";
+      }, 3000);
     } else {
       //show loading text for 4 seconds and then show connected message
       // Real CodeBase Comment
       showWatchCodeScreen.style.display = "none";
-      successfullyPairedScreen.style.display = "inline";
-
-      // setTimeout(() => {
-      //   codeShow.style.display = showText.text = "Device Successfully Paired";
-      // }, 4000);
+      loadingAnimation.style.display = "inline";
+      setTimeout(() => {
+        successfullyPairedScreen.style.display = "inline";
+      }, 3000);
     }
     // // save the watchCode and watchId to a file in the device
     fs.writeFileSync("json.txt", json_data, "json");

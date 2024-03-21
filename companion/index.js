@@ -53,7 +53,7 @@ function getCode(deviceName) {
           sendDataToDevice();
           clearInterval(pollingInterval);
         }
-      }, 5000);
+      }, 3000);
     })
     .catch((error) => {
       console.error("Failed to register watch:", error);
