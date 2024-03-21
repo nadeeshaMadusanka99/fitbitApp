@@ -11,14 +11,11 @@ const showWatchCodeScreen = document.getElementById("showWatchCodeScreen");
 const successfullyPairedScreen = document.getElementById(
   "successfullyPairedScreen"
 );
-const loadingAnimation = document.getElementById("loading-animation");
-console.log(loadingAnimation);
 
 // Show the onBoardingScreen and hide the other screens
 onBoardingScreen.style.display = "inline";
 showWatchCodeScreen.style.display = "none";
 successfullyPairedScreen.style.display = "none";
-loadingAnimation.style.display = "none";
 
 // Get the pair button
 const myButton = document.getElementById("myButton");
@@ -55,30 +52,23 @@ messaging.peerSocket.onmessage = function (evt) {
       watchId: watchId,
     };
 
+    const loadingInstance = document.getElementById("loading-instance");
     if (isUserIDNull === true) {
       //show the code and remove the connect button
       codeShow.text = watchCode;
-      //Development Comment
-      // successfullyPairedScreen.style.display = "inline";
-      loadingAnimation.style.display = "inline";
 
-      // Real CodeBase Comment
-      setTimeout(() => {
-        loadingAnimation.style.display = "none";
-        showWatchCodeScreen.style.display = "inline";
-      }, 3000);
-      // showWatchCodeScreen.style.display = "inline";
+      loadingInstance.style.display = "none";
+      showWatchCodeScreen.style.display = "inline";
     } else {
-      //show loading text for 2.5 seconds and then show connected message
-      // Real CodeBase Comment
-
+      //show loading text for 4 seconds and then show successful message
       showWatchCodeScreen.style.display = "none";
-      loadingAnimation.style.display = "inline";
+      loadingInstance.style.display = "inline";
+      loadingInstance.animate("enable");
 
       setTimeout(() => {
-        loadingAnimation.style.display = "none";
+        loadingInstance.style.display = "none";
         successfullyPairedScreen.style.display = "inline";
-      }, 3000);
+      }, 4000);
     }
     // // save the watchCode and watchId to a file in the device
     fs.writeFileSync("json.txt", json_data, "json");
