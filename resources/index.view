@@ -20,11 +20,17 @@
       </textarea>
     </svg>
     
-    <!-- <g id="loading-animation" pointer-events="visible" transform="translate(50%,50%)">
-      <animateTransform attributeType="rotate" from="0" to="360" begin="activate;load;click" dur="3" repeatCount="2"  />
-      <rect x="$-100" y="$-100" width="200" height="200" fill="fb-red" /> 
-         <image width="48" height="48" href="icons/loading.png"/>
-    </g> -->
+    <g id="loading-animation" pointer-events="visible" transform="translate(50%,50%)"  style="transform-origin: center; transform-box: fill-box;">
+      <animateTransform attributeType="rotate"  from="0" to="360" begin="activate;load;click" dur="3" repeatCount="2"  />
+         <svg xmlns="http://www.w3.org/2000/svg"x="0" y="0" width="42" height="42"  fill="none">
+            <circle opacity="0.5" cx="20" cy="6" r="6" fill="white"/>
+            <circle opacity="0.2" cx="34" cy="14" r="6" fill="white"/>
+            <circle opacity="0.3" cx="34" cy="31" r="6" fill="white"/>
+            <circle opacity="0.5" cx="20" cy="39" r="6" fill="white"/>
+            <circle opacity="0.7" cx="6" cy="31" r="6"  fill="white"/>
+            <circle cx="6" cy="14" r="6" fill="white"/>
+          </svg>
+    </g>
 
     <!-- Onboarding Screen -->
     <svg id="onBoardingScreen">

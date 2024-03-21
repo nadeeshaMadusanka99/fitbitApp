@@ -55,15 +55,17 @@ messaging.peerSocket.onmessage = function (evt) {
     if (isUserIDNull === true) {
       //show the code and remove the connect button
       codeShow.text = watchCode;
+      //Development Comment
+      // successfullyPairedScreen.style.display = "inline";
 
-      successfullyPairedScreen.style.display = "inline";
-      // Development Comment
-      // showWatchCodeScreen.style.display = "inline";
+      // Real CodeBase Comment
+      showWatchCodeScreen.style.display = "inline";
     } else {
       //show loading text for 4 seconds and then show connected message
-      // Development Comment
-      // showWatchCodeScreen.style.display = "none";
-      // successfullyPairedScreen.style.display = "inline";
+      // Real CodeBase Comment
+      showWatchCodeScreen.style.display = "none";
+      successfullyPairedScreen.style.display = "inline";
+
       // setTimeout(() => {
       //   codeShow.style.display = showText.text = "Device Successfully Paired";
       // }, 4000);
