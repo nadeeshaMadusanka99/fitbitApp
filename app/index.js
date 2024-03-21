@@ -60,18 +60,23 @@ messaging.peerSocket.onmessage = function (evt) {
       codeShow.text = watchCode;
       //Development Comment
       // successfullyPairedScreen.style.display = "inline";
-      console.log("About to show loading animation.");
       loadingAnimation.style.display = "inline";
+
       // Real CodeBase Comment
       setTimeout(() => {
+        loadingAnimation.style.display = "none";
         showWatchCodeScreen.style.display = "inline";
       }, 3000);
+      // showWatchCodeScreen.style.display = "inline";
     } else {
-      //show loading text for 4 seconds and then show connected message
+      //show loading text for 2.5 seconds and then show connected message
       // Real CodeBase Comment
+
       showWatchCodeScreen.style.display = "none";
       loadingAnimation.style.display = "inline";
+
       setTimeout(() => {
+        loadingAnimation.style.display = "none";
         successfullyPairedScreen.style.display = "inline";
       }, 3000);
     }

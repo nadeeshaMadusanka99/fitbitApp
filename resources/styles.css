@@ -32,15 +32,6 @@
   display-align: center;
   fill: fb-white;
 }
-#showText {
-  /* font-size: 25;
-  font-family: System-Regular; */
-
-  /* text-anchor: middle; */
-  /* x: 50%;
-  y: 50%-30; */
-  fill: fb-white;
-}
 
 /* Gradient Backgrounds */
 .app-gradient-fist-onboarding-background {
@@ -125,6 +116,9 @@
 /* Colors */
 .primary-clr {
   fill: #f52f57;
+}
+.white-clr {
+  fill: fb-white;
 }
 
 /* Helpers */
