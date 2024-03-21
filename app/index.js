@@ -5,7 +5,21 @@ import { today } from "user-activity";
 import { geolocation } from "geolocation";
 import { me as device } from "device";
 
+// Get the screen elements
+const onBoardingScreen = document.getElementById("onBoardingScreen");
+const showWatchCodeScreen = document.getElementById("showWatchCodeScreen");
+const successfullyPairedScreen = document.getElementById(
+  "successfullyPairedScreen"
+);
+
+// Show the onBoardingScreen and hide the other screens
+onBoardingScreen.style.display = "inline";
+showWatchCodeScreen.style.display = "none";
+successfullyPairedScreen.style.display = "none";
+
+// Get the pair button
 const myButton = document.getElementById("myButton");
+myButton.text = "Pair with App";
 
 function buttonClicked() {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
@@ -15,7 +29,6 @@ function buttonClicked() {
   }
 }
 
-//send true when the button is clicked
 myButton.addEventListener("click", (evt) => {
   buttonClicked();
 });
@@ -24,43 +37,37 @@ const deviceModelName = device.modelName;
 
 // Listen for the onopen event from the companion
 messaging.peerSocket.onmessage = function (evt) {
+  // Get the code element
   const codeShow = document.getElementById("codeShow");
-  const showText = document.getElementById("showText");
 
   if (evt.data && evt.data.watchCode && evt.data.watchId) {
+    onBoardingScreen.style.display = "none";
     const watchCode = evt.data.watchCode;
     const watchId = evt.data.watchId;
     const isUserIDNull = evt.data.isUserIDNull;
-    const isTempPollingFalse = evt.data.isTempPollingFalse;
 
-    // console.log(
-    //   "watchCode: " + watchCode,
-    //   "watchId: " + watchId,
-    //   "isUserIDNull: " + isUserIDNull,
-    //   "isTempPollingFalse: " + isTempPollingFalse
-    // );
-
+    // myButton.style.display = "none";
     let json_data = {
       watchCode: watchCode,
       watchId: watchId,
     };
 
+    const loadingInstance = document.getElementById("loading-instance");
     if (isUserIDNull === true) {
       //show the code and remove the connect button
-      showText.text = "Enter this code on your app:";
       codeShow.text = watchCode;
-      myButton.style.display = "none";
+
+      loadingInstance.style.display = "none";
+      showWatchCodeScreen.style.display = "inline";
     } else {
-      //show loading text for 4 seconds and then show connected message
-      showText.text = "Loading...";
-      codeShow.text = "";
-      myButton.style.display = "none";
+      //show loading text for 4 seconds and then show successful message
+      showWatchCodeScreen.style.display = "none";
+      loadingInstance.style.display = "inline";
+      loadingInstance.animate("enable");
 
       setTimeout(() => {
-        codeShow.style.display = showText.text = "Connected to the app...";
-        showText.style.fill = "black";
-        codeShow.style.fill = "darkgreen";
-        codeShow.text = "Welcome!";
+        loadingInstance.style.display = "none";
+        successfullyPairedScreen.style.display = "inline";
       }, 4000);
     }
     // // save the watchCode and watchId to a file in the device

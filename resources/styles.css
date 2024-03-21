@@ -1,38 +1,153 @@
 .defaultText {
   font-size: 32;
   font-family: System-Regular;
-  font-weight: regular;
   text-length: 32;
 }
 
 #background {
   width: 100%;
   height: 100%;
-  fill: cornsilk;
+  fill: fb-black;
 }
 
-.application-fill           { fill: fb-yellow; }
-.foreground-fill            { fill: fb-white; }
-.background-fill            { fill: fb-black; }
+.application-fill {
+  fill: fb-black;
+}
+.foreground-fill {
+  fill: fb-white;
+}
+.background-fill {
+  fill: fb-black;
+}
 
 #myButton #text {
-  text-buffer: "CONNECT TO APP";
+  fill: fb-white;
 }
+
 #codeShow {
-  font-size: 70;
+  /* font-size: 70; */
   font-family: System-Bold;
   text-length: 32;
   text-anchor: middle;
-  x: 50%;
-  y: 50%+50;
-  fill: black;
+  display-align: center;
+  fill: fb-white;
 }
-#showText {
-  font-size: 25;
-  font-family: System-Regular;
-  text-length: 32;
+
+/* Gradient Backgrounds */
+.app-gradient-fist-onboarding-background {
+  fill: #940b27;
+  x: 0%-5;
+  y: 0%-50;
+}
+
+.gradient-blue-background {
+  fill: navy;
+  width: 100%;
+  height: 100%;
+}
+
+.gradient-green-background {
+  fill: forestgreen;
+  width: 100%;
+  height: 100%;
+}
+
+.gradient-yellow-background {
+  fill: #342d0a;
+}
+
+/* Typography sizes */
+.h1 {
+  font-size: 70;
+  line-increment: 100;
+  font-weight: bold;
+}
+.h2 {
+  font-size: 48;
+  line-increment: 60;
+  font-weight: bold;
+}
+.h3 {
+  font-size: 33;
+  line-increment: 42;
+  font-weight: bold;
+  font-step-size: 4;
+  min-font-size: 24;
+}
+.h4 {
+  font-size: 28;
+  line-increment: 34;
+  font-weight: bold;
+  font-step-size: 4;
+  min-font-size: 24;
+}
+.h5 {
+  font-size: 23;
+  line-increment: 26;
+  font-weight: bold;
+}
+.h6 {
+  font-size: 20;
+  line-increment: 26;
+  font-weight: bold;
+}
+
+.p1 {
+  font-size: 34;
+  line-increment: 42;
+  font-step-size: 4;
+  min-font-size: 24;
+}
+.p2 {
+  font-size: 26;
+  line-increment: 34;
+  font-step-size: 4;
+  min-font-size: 24;
+}
+.p3 {
+  font-size: 23;
+  line-increment: 26;
+}
+.p4 {
+  font-size: 18;
+  line-increment: 26;
+}
+
+/* Colors */
+.primary-clr {
+  fill: #f52f57;
+}
+.white-clr {
+  fill: fb-white;
+}
+
+/* Helpers */
+.stack-gap {
+  y: $ + 6;
+}
+.center-text {
   text-anchor: middle;
-  x: 50%;
-  y: 50%-30;
-  fill: midnightblue;
+  display-align: center;
+}
+.horizontal-pad {
+  x: 18;
+  width: 100%-36;
+}
+.horizontal-pad-header {
+  x: 30;
+  width: 100%-60;
+}
+.touch-area {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.full-size {
+  x: 0;
+  y: 0;
+  width: 100%;
+  height: 100%;
 }
