@@ -60,11 +60,13 @@ messaging.peerSocket.onmessage = function (evt) {
       loadingInstance.style.display = "none";
       showWatchCodeScreen.style.display = "inline";
     } else {
-      //show loading text for 4 seconds and then show successful message
       showWatchCodeScreen.style.display = "none";
+
+      //enable the loading animation
       loadingInstance.style.display = "inline";
       loadingInstance.animate("enable");
 
+      //hide the loading animation after 4 seconds and show the successfully paired screen
       setTimeout(() => {
         loadingInstance.style.display = "none";
         successfullyPairedScreen.style.display = "inline";
