@@ -23,6 +23,7 @@
    <!-- Loading Animation -->
     <defs>
       <symbol id="loading-animation">
+        <use href="#app-gradient-background" class="gradient-blue-background  application-fill" apply-style="at-use" />
         <g  pointer-events="visible" transform="translate(50%,50%)" class="application-fill" >
           <animateTransform attributeType="rotate"  from="0" to="360" begin="enable" dur="2" repeatCount="4"  />
             <svg xmlns="http://www.w3.org/2000/svg" x="-21" y="-23" width="42" height="46"  fill="none">
